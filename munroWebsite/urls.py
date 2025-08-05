@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+from WalkMunros import views
 
 urlpatterns = [
+    path('', views.index, name="index"),
+    path('WalkMunros/', include('WalkMunros.urls')), #this maps any urls starting with WalkMunros to be handled by WalkMunros (our app).
     path("admin/", admin.site.urls),
 ]
